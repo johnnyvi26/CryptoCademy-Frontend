@@ -22,7 +22,7 @@ function CreateAccount(props) {
 
 
   return (
-    <section>
+    <div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -40,7 +40,7 @@ function CreateAccount(props) {
         />
         <input type="submit" value="Create User"/>
       </form>
-    </section>
+    </div>
   )
 }
 
