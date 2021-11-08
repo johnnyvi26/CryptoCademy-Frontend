@@ -6,10 +6,10 @@ user = the current user
 */
 function Trade(props) {
     return ( 
-    <>
+    <div style = {{border: "10px solid black"}}>
     {props.user.userName}
         for trading
-    </>
+    </div>
      );
 }
 

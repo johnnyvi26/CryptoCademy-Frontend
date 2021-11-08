@@ -21,7 +21,7 @@ const Main = (props) => {
         <Route exact path="/" element={<Login setUser={setUser}/>}/>
         <Route path="createaccount" element={<NewUser setUser={setUser}/>}/>
         <Route path="dashboard" element={<Dashboard/>}/>
-        <Route path="portfolio" element={<Portfolio user={user}/>}/>
+        <Route path="portfolio" element={<Trade user={user}/>}/>
         <Route path="trade" element={<Trade user={user}/>}/>
       </Routes>
     </main>
