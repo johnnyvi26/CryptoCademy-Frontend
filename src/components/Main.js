@@ -1,8 +1,5 @@
-
 import { useEffect, useState } from "react";
 import { Routes, Route } from 'react-router-dom';
-
-
 import Dashboard from "../pages/Dashboard"
 import Portfolio from "../pages/Portfolio"
 import Login from "../pages/Login"
@@ -33,7 +30,7 @@ const Main = () => {
       <Routes>
         <Route exact path="/" element={<Login setUser={setUser}/>}/>
         <Route path="createaccount" element={<NewUser setUser={setUser}/>}/>
-        <Route path="dashboard" element={<Dashboard/>}/>
+        <Route path="dashboard" element={<Dashboard coinData={coinData}/>}/>
         <Route path="portfolio" element={<Portfolio user={user} coinData={coinData}/>}/>
         <Route path="trade" element={<Trade user={user}/>}/>
       </Routes>
