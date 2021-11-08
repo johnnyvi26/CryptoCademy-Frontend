@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom'
+import { Nav } from "../styles/Header.styled"
 
 const Header = () => {
   return (
     <div>
-      <nav>
-        <Link to="/dashboard">
+      <Nav>
+        <Link to="/">
           <p>Dashboard</p>
         </Link>
         <Link to="/portfolio">Portfolio</Link>
-      </nav>
+      </Nav>
     </div>
   )
 }
