@@ -1,9 +1,8 @@
 import { Link } from "react-router-dom"
 
-const Dashboard = ({ coinData }) => {
+const Dashboard = ({ coinData, user }) => {
 
   const loaded = () => {
-    console.log(coinData)
 
     const coins = coinData.map(coin => {
       return (
