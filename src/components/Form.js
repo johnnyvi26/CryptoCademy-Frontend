@@ -40,7 +40,7 @@ const Form = (props) => {
           type="text"
           value={Form.userName}
           name="userName"
-          placeholder="login username"
+          placeholder="username"
           onChange={handleChange}
           required="required"
         />
@@ -48,7 +48,7 @@ const Form = (props) => {
           type="text"
           value={Form.password}
           name="password"
-          placeholder="login password"
+          placeholder="password"
           onChange={handleChange}
           required="required"
         />
