@@ -3,54 +3,21 @@ import { useEffect, useState } from "react";
 import { Routes, Route } from 'react-router-dom';
 // import Dashboard from "./components/Dashboard";
 // import Portfolio from "./components/Account";
-import LoginForm from "./LoginForm";
-import CreateAccount from "../pages/CreateAccount";
 import Dashboard from "../pages/Dashboard"
 import Portfolio from "../pages/Portfolio"
+import Login from "../pages/Login"
+import NewUser from "../pages/NewUser";
 
 
 const Main = (props) => {
-  const [usersState, setUsersState] = useState({ users: [] });
-
-  const URL = "https://hidden-journey-86205.herokuapp.com/"
-
-  const getUsers = async () => {
-    const response = await fetch(URL)
-    const users = await response.json()
-    setUsersState(users);
-  }
-
-  const createAccount = async (user) => {
-    const data = await fetch(URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "Application/json"
-      },
-      body: JSON.stringify(user),
-    })
-    const response = await data.json()
-    console.log(response)
-    getUsers();
-  }
-
-  const createLogin = async (user) => {
-    await fetch(URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "Application/json"
-      },
-      body: JSON.stringify(user),
-    })
-    getUsers();
-  }
-
-  useEffect(() => getUsers(), [])
+  //this holds the current user info
+  const [user, setUser] = useState(null);
 
   return (
     <main>
       <Routes>
-        <Route exact path="/" element={<LoginForm/>}/>
-        <Route path="createaccount" element={<CreateAccount/>}/>
+        <Route exact path="/" element={<Login setUser={setUser}/>}/>
+        <Route path="createaccount" element={<NewUser setUser={setUser}/>}/>
         <Route path="dashboard" element={<Dashboard/>}/>
         <Route path="portfolio" element={<Portfolio/>}/>
       </Routes>
