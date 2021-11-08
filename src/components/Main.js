@@ -1,10 +1,12 @@
-import React from "react"
+
 import { useEffect, useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 // import Dashboard from "./components/Dashboard";
 // import Portfolio from "./components/Account";
 import LoginForm from "./LoginForm";
 import CreateAccount from "../pages/CreateAccount";
+import Dashboard from "../pages/Dashboard"
+import Portfolio from "../pages/Portfolio"
 
 
 const Main = (props) => {
@@ -47,12 +49,10 @@ const Main = (props) => {
   return (
     <main>
       <Routes>
-      <Route path="/">
-        <LoginForm users={usersState.users}/>
-      </Route>
-      <Route path="/CreateAccount">
-        <CreateAccount createAccount={createAccount}/>
-      </Route>
+        <Route exact path="/" element={<LoginForm/>}/>
+        <Route path="createaccount" element={<CreateAccount/>}/>
+        <Route path="dashboard" element={<Dashboard/>}/>
+        <Route path="portfolio" element={<Portfolio/>}/>
       </Routes>
     </main>
   )
