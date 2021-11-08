@@ -35,7 +35,7 @@ function NewUser(props) {
         }else{
             //if user is created succesfully set the user to the user sent back by the server then redirect to portfolio
             props.setUser(response)
-            navigate("/portfolio")
+            navigate("/dashboard")
         }
     }    
 
