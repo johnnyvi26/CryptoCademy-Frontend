@@ -7,11 +7,13 @@ import Dashboard from "../pages/Dashboard"
 import Portfolio from "../pages/Portfolio"
 import Login from "../pages/Login"
 import NewUser from "../pages/NewUser";
+import Trade from "../pages/Trade";
 
 
 const Main = (props) => {
   //this holds the current user info
   const [user, setUser] = useState(null);
+
 
   return (
     <main>
@@ -19,7 +21,8 @@ const Main = (props) => {
         <Route exact path="/" element={<Login setUser={setUser}/>}/>
         <Route path="createaccount" element={<NewUser setUser={setUser}/>}/>
         <Route path="dashboard" element={<Dashboard/>}/>
-        <Route path="portfolio" element={<Portfolio/>}/>
+        <Route path="portfolio" element={<Portfolio user={user}/>}/>
+        <Route path="trade" element={<Trade user={user}/>}/>
       </Routes>
     </main>
   )

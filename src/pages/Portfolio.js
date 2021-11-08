@@ -1,6 +1,6 @@
 
 
-const Portfolio = () => {
+const Portfolio = (props) => {
   return (
     <div>
       <h1>Cash Balance</h1>
