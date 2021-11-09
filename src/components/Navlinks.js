@@ -21,6 +21,11 @@ const Navlinks = ({closeMenu}) => {
             <P>About</P>
           </Li>
         </Link>
+        <Link to="/trade" style={{textDecoration:"none"}}>
+          <Li onClick={(closeMenu)}>
+            <P>Trade</P>
+          </Li>
+        </Link>
       </Ul>
   )
 }
