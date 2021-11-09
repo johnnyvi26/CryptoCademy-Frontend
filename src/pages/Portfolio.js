@@ -1,5 +1,5 @@
-
 import {Ul, Li, H3, Div, Img} from "../styles/Portfolio.styled"
+
 
 const Portfolio = ( {coinData, user} ) => {
 
