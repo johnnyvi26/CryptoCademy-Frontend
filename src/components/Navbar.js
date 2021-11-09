@@ -13,6 +13,7 @@ const Navbar = () => {
   const openIcon = <HiOutlineMenuAlt4 onClick={() => setOpen(!open)}/>
 
   const closeIcon = <GrClose onClick={() => setOpen(!open)}/>
+  
 
   return (
 
