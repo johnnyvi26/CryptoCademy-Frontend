@@ -26,7 +26,7 @@ color:red;
 `
 
 export const Success = styled.div`
-
+color:green;
 `
 
 export const Balance =styled.div`
@@ -34,5 +34,5 @@ export const Balance =styled.div`
 `
 
 export const Form = styled.form`
-
+margin-top: 0px;
 `

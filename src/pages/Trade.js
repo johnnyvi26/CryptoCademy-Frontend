@@ -8,6 +8,7 @@ refreshUser = function for refreshing the current users data
 import {useState} from 'react';
 import {Div} from '../styles/Login.styled'
 import {Option, Number, Submit,Arrow,Error,Success,Balance,Form} from '../styles/Trade.styled'
+import Navlinks from '../components/Navlinks'
 function Trade(props) {
     //~~~~~~~~~~~~~~~~~~~~~~~STATE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
@@ -91,9 +92,9 @@ function Trade(props) {
             <Div>
             {/* status messages */}
             {(error)?<Error>{error}</Error>:null}
-            <Balance id="selectBalance">{sellCoinSymbol} Available: {props.user.portfolio[sellCoinSymbol]}   </Balance>
             {(success)?<Success>{success}</Success>:null}
                 <Form onSubmit={handleTrade}>
+                <Balance id="selectBalance">{sellCoinSymbol} Available: {props.user.portfolio[sellCoinSymbol]}</Balance>
                     {/* the select menu for which coin you want to sell */}
                     <Option name="sellCoin" onChange={sellCoinChange}>
                         {/* if the user any amount of a coin larger then 0 then add to the dropdown */}
@@ -115,4 +116,4 @@ function Trade(props) {
 
 }
 
-export default Trade;
+export default Trade
