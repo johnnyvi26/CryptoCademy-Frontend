@@ -19,7 +19,8 @@ const Portfolio = ( {coinData, user} ) => {
     })
     const sum = coinValues.reduce((a, b) => a + b, 0);
     // console.log(coinValues)
-    return sum + wallet.USD;
+    const balance = sum + wallet.USD;
+    return balance;
   };
 
   // calculate prices of owned assets

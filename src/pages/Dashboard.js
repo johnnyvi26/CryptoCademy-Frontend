@@ -4,6 +4,26 @@ const Dashboard = ({ coinData, user }) => {
 
   const loaded = () => {
 
+    const wallet = user.portfolio;
+
+    let coinValues = [];
+    
+    const portfolioBalance = () => {
+      // coinBalance + usdBalance
+      const coinValues = coinData.map(coin => {
+        let id = coin.symbol.toUpperCase();
+        if (wallet.hasOwnProperty(id)) {
+          return wallet[`${id}`] * coin.current_price
+        } else {
+          return 0;
+        }
+      })
+      const sum = coinValues.reduce((a, b) => a + b, 0);
+      // console.log(coinValues)
+      const balance = sum + wallet.USD;
+      return balance;
+    };
+
     const coins = coinData.map(coin => {
       return (
         <div>
@@ -18,6 +38,7 @@ const Dashboard = ({ coinData, user }) => {
       <div>
         <Link to="/portfolio">
           <p>Portfolio Balance</p>
+          <p>{`$${portfolioBalance()}`}</p>
         </Link>
         
         <h1>Coin Listings</h1>
