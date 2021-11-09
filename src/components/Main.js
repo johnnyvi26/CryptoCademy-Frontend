@@ -32,6 +32,7 @@ const Main = () => {
         <Route path="createaccount" element={<NewUser setUser={setUser}/>}/>
         <Route path="dashboard" element={<Dashboard coinData={coinData} user={user}/>}/>
         <Route path="portfolio" element={<Portfolio user={user} coinData={coinData}/>}/>
+        <Route path="trade" element={<Trade user={user} coinData={coinData}/>}/>
       </Routes>
     </main>
   )
