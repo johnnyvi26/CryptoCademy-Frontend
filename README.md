@@ -28,3 +28,7 @@ CryptoCadeny is a crypto education website to simulate investing in crypto using
 
 # Wireframes
 
+![Screen Shot 2021-11-09 at 5 47 42 PM](https://user-images.githubusercontent.com/82793235/141018125-445764de-f9ef-4a3a-996d-eaf4ad25fc3a.png)
+
+
+
