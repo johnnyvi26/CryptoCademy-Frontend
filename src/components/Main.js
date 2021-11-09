@@ -22,6 +22,22 @@ const Main = () => {
     const data = await response.json()
     setCoinData(data)
   };
+
+  //refreshes the user and coin info
+  const refreshUser = async()=>{
+    //updates the userInfo
+    const URL = "https://hidden-journey-86205.herokuapp.com/user/login"
+    const data = await fetch(URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "Application/json"
+        },
+        body: JSON.stringify(user),
+      })
+    const response = await data.json()
+    setUser(response)
+    getCoinData()
+  }
   
   useEffect(() => getCoinData(), [])
 
@@ -32,7 +48,7 @@ const Main = () => {
         <Route path="createaccount" element={<NewUser setUser={setUser}/>}/>
         <Route path="dashboard" element={<Dashboard coinData={coinData} user={user}/>}/>
         <Route path="portfolio" element={<Portfolio user={user} coinData={coinData}/>}/>
-        <Route path="trade" element={<Trade user={user} coinData={coinData}/>}/>
+        <Route path="trade" element={<Trade refreshUser = {refreshUser}user={user} coinData={coinData}/>}/>
       </Routes>
     </main>
   )

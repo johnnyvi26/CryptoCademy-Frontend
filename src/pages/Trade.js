@@ -16,10 +16,7 @@ function Trade(props) {
         const[loading, setLoading] = useState(false)
         //success message to be sent back from the backend
         const[success, setSuccess] = useState(false)
-    
         //*********Form Tracking *******************/
-        //represents the amount of a selected coin that a user has
-        const[selectBalance, setSelectBalance] = useState(`You currently have ${props.user.portfolio["USD"]} USD available to trade`)
         //the coin which the user wants to trade
         const[sellCoinSymbol, setSellCoinSymbol]=useState("USD")
         //the amount of coin the user wants to trade
@@ -41,11 +38,9 @@ function Trade(props) {
     }
     //this changes the value of select balance to represent the currently selected coin
     const sellCoinChange = (event) =>{
-        const balance = props.user.portfolio[event.target.value]
-        setSelectBalance(`You currently have ${balance} ${event.target.value} available to trade`)
+        setSellCoinSymbol(event.target.value)
     }
     //this functions handles the submission of a trade
-
     const handleTrade = async (event) =>{
         event.preventDefault()
         // ~~~~~~~~~~~~~~~~~~~~~~~~~VARIABLES~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -66,7 +61,7 @@ function Trade(props) {
         const body = JSON.stringify({
             userName:props.user.userName,
             transaction : {
-            exchange:[sellCoinSymbol, parseFloat(sellCoinWorth)],
+            exchange:[sellCoinSymbol, parseFloat(sellAmount)],
             for:[buyCoinSymbol, parseFloat(buyCoinAmount)]
          }
         })
@@ -83,17 +78,16 @@ function Trade(props) {
             body: body,
           })
         setLoading(false)
-        setSuccess(`traded ${sellAmount} ${sellCoinSymbol} for ${buyCoinAmount} ${buyCoinSymbol}`)
+        setSuccess(`Traded ${sellCoinSymbol} ${sellAmount} for ${buyCoinAmount} ${buyCoinSymbol}`)
         setSellAmount(0)
-        
-
+        props.refreshUser()
     }
 
         return(
             <div>
             {/* status messages */}
             {(error)?<h3 id="error">{error}</h3>:null}
-            {(selectBalance)?<h3 id="selectBalance">{selectBalance}</h3>:null}
+            <h3 id="selectBalance">You currently have {props.user.portfolio[sellCoinSymbol]}  {sellCoinSymbol} available to trade</h3>
             {(success)?<h3 id="success">{success}</h3>:null}
                 <form onSubmit={handleTrade}>
                     {/* the select menu for which coin you want to sell */}
