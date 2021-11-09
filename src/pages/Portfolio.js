@@ -19,9 +19,9 @@ const Portfolio = ({ coinData, user }) => {
     return balance;
   };
   // calculate prices of owned assets
-  // const removeUser = () =>{
-  //   handleDeleteUser(user.id);
-  // }
+  const removeUser = () =>{
+    handleDeleteUser(user.id);
+  }
   const navigate = useNavigate();
   const handleDeleteUser = async () => {
     alert('User is being deleted this user')
@@ -64,11 +64,11 @@ const Portfolio = ({ coinData, user }) => {
                     <Li>
                       <H3>{coin.symbol.toUpperCase()}</H3>
                     </Li>
-                    <H3>{wallet[`${id}`]}</H3>
+                    <H3>{Math.round(wallet[`${id}`] * 100000)/100000}</H3>
                     <Li>
                     </Li>
                     <Li>
-                      <H3>{`$${wallet[`${id}`] * coin.current_price}`}</H3>
+                      <H3>{`$${Math.round((wallet[`${id}`] * coin.current_price) *1000)/1000}`}</H3>
                     </Li>
                   </Ul>
                 </div>
