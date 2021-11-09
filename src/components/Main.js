@@ -1,8 +1,5 @@
-
 import { useEffect, useState } from "react";
 import { Routes, Route } from 'react-router-dom';
-
-
 import Dashboard from "../pages/Dashboard"
 import Portfolio from "../pages/Portfolio"
 import Login from "../pages/Login"
@@ -16,7 +13,7 @@ const Main = () => {
 
   const [coinData, setCoinData] = useState(null);
 
-  const URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin%2Cethereum%2Ccardano&order=market_cap_desc&per_page=10&page=1&sparkline=false&price_change_percentage=24h"
+  const URL = "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=20&page=1&sparkline=false"
 
 
   // make call
@@ -33,7 +30,7 @@ const Main = () => {
       <Routes>
         <Route exact path="/" element={<Login setUser={setUser}/>}/>
         <Route path="createaccount" element={<NewUser setUser={setUser}/>}/>
-        <Route path="dashboard" element={<Dashboard/>}/>
+        <Route path="dashboard" element={<Dashboard coinData={coinData} user={user}/>}/>
         <Route path="portfolio" element={<Portfolio user={user} coinData={coinData}/>}/>
       </Routes>
     </main>
