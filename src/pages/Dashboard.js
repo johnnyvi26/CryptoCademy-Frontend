@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { Div, P, Ul, H1, Title } from "../styles/Dashboard.styled"
 
 const Dashboard = ({ coinData, user }) => {
 
@@ -26,10 +27,12 @@ const Dashboard = ({ coinData, user }) => {
 
     const coins = coinData.map(coin => {
       return (
-        <div>
-          <h1>{coin.symbol}</h1>
-          <p>{coin.current_price}</p>
-        </div>
+          <Div>
+            <Ul>
+              <H1>{coin.symbol}</H1>
+              <P>{coin.current_price}</P>
+            </Ul>
+          </Div>
       )
     })
     
@@ -41,7 +44,7 @@ const Dashboard = ({ coinData, user }) => {
           <p>{`$${portfolioBalance()}`}</p>
         </Link>
         
-        <h1>Coin Listings</h1>
+        <Title>Coin Listings</Title>
         
         <p>{coins}</p>
 
