@@ -2,7 +2,9 @@ import { Link } from 'react-router-dom'
 import {Ul, Li, P} from '../styles/Navlinks.styled'
 
 
+
 const Navlinks = ({closeMenu}) => {
+
 
   return (
       <Ul>
