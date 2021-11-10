@@ -52,7 +52,6 @@ font-family: 'Roboto', sans-serif;
 color: black;
 font-weight: bold;
 margin-left: 10px;
-margin-top: -30px;
 `
 
 export const PBLink = styled.p`
