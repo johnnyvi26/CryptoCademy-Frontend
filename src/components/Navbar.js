@@ -10,9 +10,11 @@ const Navbar = () => {
 
   const closeMenu = () => setOpen(false);
 
-  const openIcon = <HiOutlineMenuAlt4 onClick={() => setOpen(!open)}/>
+  const styles = {fontsize: "20px"}
 
-  const closeIcon = <GrClose onClick={() => setOpen(!open)}/>
+  const openIcon = <HiOutlineMenuAlt4 styles={styles} onClick={() => setOpen(!open)}/>
+
+  const closeIcon = <GrClose value={{size: '30px'}} onClick={() => setOpen(!open)}/>
   
 
   return (
