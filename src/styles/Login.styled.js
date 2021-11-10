@@ -20,7 +20,7 @@ font-size: 15px;
 `
 
 export const Img = styled.img`
-  width: 200px;
+  width: 400px;
   margin-right: 30px;
 `
 
