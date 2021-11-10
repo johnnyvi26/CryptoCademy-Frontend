@@ -4,7 +4,7 @@ import { HiOutlineMenuAlt4 } from 'react-icons/hi'
 import { GrClose } from 'react-icons/gr'
 import {useState} from 'react'
 
-const Navbar = () => {
+const Navbar = ({user}) => {
 
   const [open, setOpen] = useState(false);
 
@@ -13,7 +13,6 @@ const Navbar = () => {
   const openIcon = <HiOutlineMenuAlt4 onClick={() => setOpen(!open)}/>
 
   const closeIcon = <GrClose onClick={() => setOpen(!open)}/>
-  
 
   return (
 
@@ -24,7 +23,7 @@ const Navbar = () => {
         </Hamburger>
         </Div>
         <div>
-          {open && <Navlinks closeMenu={closeMenu}/>}
+          {open && <Navlinks closeMenu={closeMenu} user={user}/>}
         </div>
       </nav>
 
