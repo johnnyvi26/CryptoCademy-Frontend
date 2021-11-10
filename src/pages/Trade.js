@@ -6,8 +6,7 @@ user = the current user
 refreshUser = function for refreshing the current users data
 */
 import {useState} from 'react';
-import {Div} from '../styles/Login.styled'
-import {Option, Number, Submit,Arrow,Error,Success,Balance,Form} from '../styles/Trade.styled'
+import {Option, Number, Submit,Arrow,Error,Success,Balance,Form, Div, Option1} from '../styles/Trade.styled'
 import Navlinks from '../components/Navlinks'
 function Trade(props) {
     //~~~~~~~~~~~~~~~~~~~~~~~STATE~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -105,9 +104,9 @@ function Trade(props) {
                     <Number type="number" name="sellAmount" value={sellAmount} placeholder="Amount to sell" onChange={onSellAmountChange} step="any"/>                    <Arrow>➝</Arrow>
                     
                     {/* select menu for the coin you want to buy */}
-                    <Option name="buyCoin">``
+                    <Option1 name="buyCoin">``
                         {portfolio.map(e=><option value={e[0]}>{e[0]}</option>)}
-                    </Option>
+                    </Option1>
                     <Submit type="submit" value="Submit Trade"/>
                 </Form>
             </Div>
